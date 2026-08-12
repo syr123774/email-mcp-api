@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-module.exports = async (req, res) ={
+module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
   
@@ -28,7 +28,7 @@ module.exports = async (req, res) ={
 
   try {
     const info = await transporter.sendMail({
-      from: `"${displayName}" <${process.env.QQ_EMAIL}`,
+      from: `"${displayName}" <${process.env.QQ_EMAIL}>`,
       to: process.env.TO_EMAIL || process.env.QQ_EMAIL,
       subject: subject,
       text: content
